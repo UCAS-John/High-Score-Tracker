@@ -17,3 +17,7 @@ def update():
 #Eli
 def display_score():
     raise NotImplementedError
+
+# Use this to test your function
+if __name__  == "__main__":
+    pass
