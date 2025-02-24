@@ -15,34 +15,44 @@ def play_game():
         computer = ['rock', 'paper', 'scissors']
         user = input('Type in your choice(rock, paper, or scissors): ')
         computer_choice = random.choice(computer)
-        print('The computer chose .......\n', computer_choice)
+        
         if computer_choice == 'rock' and user == 'rock':
+            print('The computer chose .......\n', computer_choice)
             print('This was a tie.(No points are given)')
+            
             time+=1
         elif computer_choice == 'rock' and user == 'paper':
+            print('The computer chose .......\n', computer_choice)
             print('You won this round')
             score+=1
             time+=1
         elif computer_choice == 'rock' and user == 'scissors':
+            print('The computer chose .......\n', computer_choice)
             print('The computer won this round')
             time+=1
         elif computer_choice == 'paper' and user == 'paper':
+            print('The computer chose .......\n', computer_choice)
             print('This was a tie.(No points are given)')
             time+=1
         elif computer_choice == 'paper' and user == 'rock':
+            print('The computer chose .......\n', computer_choice)
             print('The computer won this round')
             time+=1
         elif computer_choice == 'paper' and user == 'scissors':
+            print('The computer chose .......\n', computer_choice)
             print('You won this round.')
             score+=1
             time+=1
         elif computer_choice == 'scissors' and user == 'scissors':
+            print('The computer chose .......\n', computer_choice)
             print('This is a tie.(No points are given)')
             time+=1
         elif computer_choice == 'scissors' and user == 'paper':
+            print('The computer chose .......\n', computer_choice)
             print('The computer won this round')
             time+=1
         elif computer_choice == 'scissors' and user == 'rock':
+            print('The computer chose .......\n', computer_choice)
             print('You won this round.')
             score+=1
             time+=1

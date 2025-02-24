@@ -34,7 +34,7 @@ def main():
 
             case '3':
                 print('Thankyou for playing!')
-                return
+                exit()
 
             case _:
                 print('That is not an option. Try again')
