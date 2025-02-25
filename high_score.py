@@ -2,11 +2,6 @@ import csv
 
 PATH = "high_score.csv"
 
-scores = []
-
-with open("high_score.csv", "r") as file:
-    for row in file:
-        scores.append(row)
 
 # Locklin
 def check_file():
@@ -22,6 +17,10 @@ def update():
 
 #Eli
 def display_top_ten():
+    scores = []
+    with open("high_score.csv", "r") as file:
+        for row in file:
+            scores.append(row)
     top = 10
     for score in scores:
         if top <= 0:
