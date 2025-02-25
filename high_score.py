@@ -40,6 +40,10 @@ def update(name: str, score: int) -> None:
     except Exception as e:
         print(f"Error updating: {e}")
 
+def sort(high_score: dict) -> dict:
+    sorted_high_score = {k: v for k, v in sorted(high_score.items(), key=lambda item: item[1])}
+    return sorted_high_score
+
 #Eli
 def display_score():
     raise NotImplementedError
