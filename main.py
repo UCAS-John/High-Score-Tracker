@@ -1,5 +1,5 @@
 from game import play_game
-from high_score import *
+from high_score import display_top_ten, update
 import csv
 
 def user_profiles():
