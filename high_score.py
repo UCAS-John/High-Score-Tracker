@@ -2,11 +2,15 @@ import csv
 
 PATH = "high_score.csv"
 
-# Locklin
+# Create file if not exists
 def check_file():
-    raise NotImplementedError
+    try:
+        with open(PATH, "x"):
+            return
+    except FileExistsError:
+        return
 
-# John
+# Load csv as dictionary
 def load() -> dict:
     high_score = {}
     my_list = []
@@ -26,7 +30,7 @@ def load() -> dict:
 
     return high_score
 
-# John
+# Update high score if score is higher than previous score
 def update(name: str, score: int) -> None:
     high_score = {}
     high_score = load()
@@ -46,11 +50,12 @@ def update(name: str, score: int) -> None:
     except Exception as e:
         print(f"Error updating: {e}")
 
+# Sort Dictionary
 def sort_dict(high_score: dict) -> dict:
     sorted_high_score = {k: v for k, v in sorted(high_score.items(), key=lambda item: item[1], reverse=True)}
     return sorted_high_score
 
-#Eli
+# Display Top ten highest score
 def display_top_ten() -> None:
     scores = {}
     scores = load()
@@ -58,9 +63,10 @@ def display_top_ten() -> None:
         print("There is no high score yet!")
         return
     
-    top = {k: v for i, (k, v) in enumerate(scores.items()) if i < 10} 
-
     scores = sort_dict(scores)
+
+    top = {k: v for i, (k, v) in enumerate(scores.items()) if i < 10} # Get top ten score in to dict
+
     for name, score in top.items():
         print(f"{name}: {score}")
 
