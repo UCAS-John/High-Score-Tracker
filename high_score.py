@@ -67,8 +67,10 @@ def display_top_ten() -> None:
 
     top = {k: v for i, (k, v) in enumerate(scores.items()) if i < 10} # Get top ten score in to dict
 
+    print("\nTop ten highest score!")
     for name, score in top.items():
         print(f"{name}: {score}")
+    print("")
 
 # Use this to test your function
 if __name__  == "__main__":
