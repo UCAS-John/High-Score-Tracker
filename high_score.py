@@ -50,9 +50,18 @@ def sort_dict(high_score: dict) -> dict:
     sorted_high_score = {k: v for k, v in sorted(high_score.items(), key=lambda item: item[1], reverse=True)}
     return sorted_high_score
 
-# Eli
-def display_score():
-    raise NotImplementedError
+#Eli
+def display_top_ten():
+    scores = []
+    with open("high_score.csv", "r") as file:
+        for row in file:
+            scores.append(row)
+    top = 10
+    for score in scores:
+        if top <= 0:
+            break
+        print(score)
+        top -= 1
 
 # Use this to test your function
 if __name__  == "__main__":
