@@ -70,5 +70,5 @@ if __name__  == "__main__":
                   "h": 85,
                   "a": 85.5}
     print(dictionary)
-    sort_dict = sort_dict(dictionary)
-    print(sort_dict)
+    sorted_dict = sort_dict(dictionary)
+    print(sorted_dict)
