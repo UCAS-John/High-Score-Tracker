@@ -30,7 +30,12 @@ def load() -> dict:
 def update(name: str, score: int) -> None:
     high_score = {}
     high_score = load()
-    high_score[name] = score
+
+    if name in high_score:
+        if score > high_score.get(name):
+            high_score[name] = score
+    else:
+        high_score[name] = score
 
     try:
         with open(PATH, "w", newline="") as file:
