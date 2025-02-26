@@ -47,15 +47,19 @@ def update(name: str, score: int) -> None:
         print(f"Error updating: {e}")
 
 def sort_dict(high_score: dict) -> dict:
-    sorted_high_score = {k: v for k, v in sorted(high_score.items(), key=lambda item: item[1])}
+    sorted_high_score = {k: v for k, v in sorted(high_score.items(), key=lambda item: item[1], reverse=True)}
     return sorted_high_score
 
-#Eli
+# Eli
 def display_score():
     raise NotImplementedError
 
 # Use this to test your function
 if __name__  == "__main__":
-    update("John", 20)
-    update("Anna", 80)
-    update("John", 90)
+    dictionary = {"JOhn" : 90,
+                  "anna" : 80,
+                  "h": 85,
+                  "a": 85.5}
+    print(dictionary)
+    sort_dict = sort_dict(dictionary)
+    print(sort_dict)
