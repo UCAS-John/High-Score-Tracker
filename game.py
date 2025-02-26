@@ -41,7 +41,7 @@ def play_game():
             complete_score = ('Your final score is:',score)
             comp_complete_score = ('The computers final score is:', comp_score)
             print(complete_score,'\n', comp_complete_score )
-            break
+            return score
         else:
             continue
 
