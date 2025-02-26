@@ -38,9 +38,10 @@ def play_game():
         
         choice = input('Would you like to exit the game? y/n\n')
         if choice == 'y':
-            print('Your final score is:',score)
-            print('The computers final score is:', comp_score)
-            break
+            complete_score = ('Your final score is:',score)
+            comp_complete_score = ('The computers final score is:', comp_score)
+            print(complete_score,'\n', comp_complete_score )
+            return score
         else:
             continue
 
@@ -48,4 +49,4 @@ def play_game():
 
 # Use this to test your function
 if __name__  == "__main__":
-    pass
+    play_game()
