@@ -24,7 +24,7 @@ def load() -> dict:
             if len(my_list) != 2:
                 return high_score
             for key, value in zip(my_list[0], my_list[1]):
-                high_score[key] = value
+                high_score[key] = int(value) 
     except Exception as e:
         print(f"Error loading: {e}")
 
@@ -36,7 +36,7 @@ def update(name: str, score: int) -> None:
     high_score = load()
 
     if name in high_score:
-        if score > high_score.get(name):
+        if score > high_score[name]:
             high_score[name] = score
     else:
         high_score[name] = score
@@ -67,8 +67,10 @@ def display_top_ten() -> None:
 
     top = {k: v for i, (k, v) in enumerate(scores.items()) if i < 10} # Get top ten score in to dict
 
+    print("\nTop ten highest score!")
     for name, score in top.items():
         print(f"{name}: {score}")
+    print("")
 
 # Use this to test your function
 if __name__  == "__main__":
