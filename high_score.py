@@ -51,24 +51,19 @@ def sort_dict(high_score: dict) -> dict:
     return sorted_high_score
 
 #Eli
-def display_top_ten():
-    scores = []
-    with open("high_score.csv", "r") as file:
-        for row in file:
-            scores.append(row)
-    top = 10
-    for score in scores:
-        if top <= 0:
-            break
-        print(score)
-        top -= 1
+def display_top_ten() -> None:
+    scores = {}
+    scores = load()
+    if not scores:
+        print("There is no high score yet!")
+        return
+    
+    top = {k: v for i, (k, v) in enumerate(scores.items()) if i < 10} 
+
+    scores = sort_dict(scores)
+    for name, score in top.items():
+        print(f"{name}: {score}")
 
 # Use this to test your function
 if __name__  == "__main__":
-    dictionary = {"JOhn" : 90,
-                  "anna" : 80,
-                  "h": 85,
-                  "a": 85.5}
-    print(dictionary)
-    sort_dict = sort_dict(dictionary)
-    print(sort_dict)
+    display_top_ten()
