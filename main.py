@@ -1,13 +1,13 @@
 from game import play_game
-from high_score import display_top_ten, update
+from high_score import display_top_ten, update, load
 import csv
 
 #We have to display the user's username and their score when we display the top 10 scores
-    
-info = {}
 
 def user_profiles():
-    info = {}
+    user_path = "user.csv"
+    info = load(user_path)
+    
     username = input('What is your username: ')
     password = input('What is your password')
     if username in info and info[username] == password:
@@ -47,7 +47,8 @@ def main():
 
         match choice:
             case '1':
-                play_game()
+                score = play_game()
+                update(name=username, score=score)
             case '2':
                 display_top_ten()
             case '3':

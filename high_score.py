@@ -1,21 +1,24 @@
 import csv
 
-PATH = "high_score.csv"
+USER_PATH = "user.csv"
+SCORE_PATH = "high_score.csv"
 
 # Create file if not exists
 def check_file():
     try:
-        with open(PATH, "x"):
+        with open("high_score.csv", "x"):
+            return
+        with open("user.csv", "x"):
             return
     except FileExistsError:
         return
 
 # Load csv as dictionary
-def load() -> dict:
+def load(path: str) -> dict:
     high_score = {}
     my_list = []
     try:
-        with open(PATH, newline="") as file:
+        with open(path, newline="") as file:
             reader = csv.reader(file, delimiter=",")
             if reader is None:
                 return high_score
@@ -30,6 +33,19 @@ def load() -> dict:
 
     return high_score
 
+def store_user(username: str, password: str):
+    users= {}
+    users = load(USER_PATH)
+    users[username] = password
+
+    try:
+        with open(USER_PATH, "w", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow(users.keys())
+            writer.writerow(users.values())
+    except Exception as e:
+        print(f"Error updating: {e}")
+
 # Update high score if score is higher than previous score
 def update(name: str, score: int) -> None:
     high_score = {}
@@ -43,7 +59,7 @@ def update(name: str, score: int) -> None:
 
     high_score = sort_dict(high_score)
     try:
-        with open(PATH, "w", newline="") as file:
+        with open(SCORE_PATH, "w", newline="") as file:
             writer = csv.writer(file)
             writer.writerow(high_score.keys())
             writer.writerow(high_score.values())
@@ -58,7 +74,7 @@ def sort_dict(high_score: dict) -> dict:
 # Display Top ten highest score
 def display_top_ten() -> None:
     scores = {}
-    scores = load()
+    scores = load(SCORE_PATH)
     if not scores:
         print("There is no high score yet!")
         return
