@@ -8,7 +8,7 @@ def user_profiles():
     password = input('What is your password')
     if username in info and info[username] == password:
 
-    else:
+    #else:
         print('You don\'t alreday have an account.\n Would you like to add this account? (y/n)')
 
     info[username] = password
@@ -22,7 +22,7 @@ def main():
     print(title_case_string)
 
     while True:
-        choice = input('What would you like to do?\n1. Play Game\n2. Display top 10 scores\n3. Log out')
+        choice = input('What would you like to do?\n1. Play Game\n2. Display top 10 scores\n3. Log out\n: ')
         match choice:
             case '1':
                 name = input("Enter your name: ")
