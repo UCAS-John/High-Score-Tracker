@@ -29,7 +29,7 @@ def main():
                 score = play_game()
                 update(name=name, score=score)
             case '2':
-                display_score()
+                display_top_ten()
             case '3':
                 print("Log out")
                 return
