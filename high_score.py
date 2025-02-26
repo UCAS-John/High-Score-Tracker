@@ -37,6 +37,7 @@ def update(name: str, score: int) -> None:
     else:
         high_score[name] = score
 
+    high_score = sort_dict(high_score)
     try:
         with open(PATH, "w", newline="") as file:
             writer = csv.writer(file)
@@ -45,7 +46,7 @@ def update(name: str, score: int) -> None:
     except Exception as e:
         print(f"Error updating: {e}")
 
-def sort(high_score: dict) -> dict:
+def sort_dict(high_score: dict) -> dict:
     sorted_high_score = {k: v for k, v in sorted(high_score.items(), key=lambda item: item[1])}
     return sorted_high_score
 
