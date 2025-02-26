@@ -38,10 +38,9 @@ def play_game():
         
         choice = input('Would you like to exit the game? y/n\n')
         if choice == 'y':
-            complete_score = ('Your final score is:',score)
+            complete_score = ('Your final score is: ',score)
             comp_complete_score = ('The computers final score is:', comp_score)
-            print(complete_score,'\n', comp_complete_score )
-            return score
+            print(complete_score,'\n',comp_complete_score )
         else:
             continue
 
