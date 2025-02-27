@@ -50,14 +50,12 @@ def play_game():
             print('That is not one of the options. Try again...')
             continue
         
-        choice = input('Would you like to exit the game? y/n\n')
-        if choice == 'y':
-            complete_score = ('Your final score is',score,'out of',time,'attempts.')
-            print(complete_score)
-            break
+        if time > 5:
+            print(f'Your final score is: {score}')
+            return score
         else:
             continue
-
+    
 
 
 # Use this to test your function
