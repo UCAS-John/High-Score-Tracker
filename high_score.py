@@ -1,55 +1,11 @@
-import csv
+from file import load, write
 
-USER_PATH = "user.csv"
 SCORE_PATH = "high_score.csv"
-
-# Create file if not exists
-def check_file():
-    try:
-        with open("high_score.csv", "x"):
-            return
-        with open("user.csv", "x"):
-            return
-    except FileExistsError:
-        return
-
-# Load csv as dictionary
-def load(path: str) -> dict:
-    high_score = {}
-    my_list = []
-    try:
-        with open(path, newline="") as file:
-            reader = csv.reader(file, delimiter=",")
-            if reader is None:
-                return high_score
-            for row in reader:
-                my_list.append(row)
-            if len(my_list) != 2:
-                return high_score
-            for key, value in zip(my_list[0], my_list[1]):
-                high_score[key] = int(value) 
-    except Exception as e:
-        print(f"Error loading: {e}")
-
-    return high_score
-
-def store_user(username: str, password: str):
-    users= {}
-    users = load(USER_PATH)
-    users[username] = password
-
-    try:
-        with open(USER_PATH, "w", newline="") as file:
-            writer = csv.writer(file)
-            writer.writerow(users.keys())
-            writer.writerow(users.values())
-    except Exception as e:
-        print(f"Error updating: {e}")
 
 # Update high score if score is higher than previous score
 def update(name: str, score: int) -> None:
     high_score = {}
-    high_score = load()
+    high_score = load(SCORE_PATH, integer=True)
 
     if name in high_score:
         if score > high_score[name]:
@@ -58,13 +14,8 @@ def update(name: str, score: int) -> None:
         high_score[name] = score
 
     high_score = sort_dict(high_score)
-    try:
-        with open(SCORE_PATH, "w", newline="") as file:
-            writer = csv.writer(file)
-            writer.writerow(high_score.keys())
-            writer.writerow(high_score.values())
-    except Exception as e:
-        print(f"Error updating: {e}")
+
+    write(SCORE_PATH, high_score)
 
 # Sort Dictionary
 def sort_dict(high_score: dict) -> dict:
@@ -74,7 +25,7 @@ def sort_dict(high_score: dict) -> dict:
 # Display Top ten highest score
 def display_top_ten() -> None:
     scores = {}
-    scores = load(SCORE_PATH)
+    scores = load(SCORE_PATH, integer=True)
     if not scores:
         print("There is no high score yet!")
         return
