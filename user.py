@@ -6,11 +6,13 @@ def store_user(username: str, password: str) -> None:
     users = load(USER_PATH)
     if username in users:
         print("\nUsername is already used\n")
-        return
+        return False
     
     users[username] = password
 
     write(USER_PATH, users)
+
+    return True
 
 def check_user(username: str, password: str) -> bool:
     users = load(USER_PATH)
