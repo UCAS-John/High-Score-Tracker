@@ -5,7 +5,7 @@ from user import store_user, check_user
 
 def main():
     check_file()
-    title = "Welcome to a rock paper scissors game!"
+    title = "\n\nWelcome to a rock paper scissors game!\n\n"
     title_case_string = title.title()
     print(title_case_string)
 

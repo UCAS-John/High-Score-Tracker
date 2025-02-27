@@ -50,7 +50,7 @@ def play_game():
             print('That is not one of the options. Try again...')
             continue
         
-        if time > 5:
+        if time == 5:
             print(f'Your final score is: {score}')
             return score
         else:
