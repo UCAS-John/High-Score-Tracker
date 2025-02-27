@@ -28,7 +28,8 @@ def main():
                 username = input('What is your username: ').strip()
                 password = input('What is your password: ').strip()
                 store_user(username, password)
-                continue
+                print(f"\nWelcome {username}\n")
+                break
 
             case '3':
                 print('Thankyou for playing!')
