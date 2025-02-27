@@ -54,6 +54,7 @@ def play_game():
         if choice == 'y':
             complete_score = ('Your final score is',score,'out of',time,'attempts.')
             print(complete_score)
+            break
         else:
             continue
 
