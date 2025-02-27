@@ -27,7 +27,8 @@ def main():
             case '2':
                 username = input('What is your username: ').strip()
                 password = input('What is your password: ').strip()
-                store_user(username, password)
+                if not store_user(username, password):
+                    continue
                 print(f"\nWelcome {username}\n")
                 break
 
