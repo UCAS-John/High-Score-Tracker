@@ -41,4 +41,19 @@ def display_top_ten() -> None:
 
 # Use this to test your function
 if __name__  == "__main__":
-    display_top_ten()
+    while True:
+        choice = input("1) Load score and show\n2) Update score\n3) Exit\n")
+
+        match choice:
+            case '1':
+                high_score = load(SCORE_PATH)
+                for name, score in high_score.items():
+                    print(f"{name}: {score}")
+            case '2':
+                name = input("Enter your name: ")
+                score = input("Enter your score: ")
+            case '3':
+                print("exit")
+                break
+            case _:
+                print("Invalid Choice")
