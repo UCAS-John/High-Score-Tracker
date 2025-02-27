@@ -19,7 +19,7 @@ def main():
                 username = input('What is your username: ').strip()
                 password = input('What is your password: ').strip()
                 if check_user(username, password):
-                    print(f"\nWelcome {username}\n")
+                    print(f"\nWelcome {username}!\n")
                     break
                 else:
                     print("\nInvalid Username or Password\n")
