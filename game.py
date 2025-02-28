@@ -9,62 +9,67 @@ def play_game():
     #These take care of the players score
     score = 0
 
-    time = 0
     while True:
-
         computer = ['rock', 'paper', 'scissors']
-        user = input('Type in your choice(rock, paper, or scissors): ')
+        user = input('\nType in your choice(rock, paper, or scissors): ').strip().lower()
         computer_choice = random.choice(computer)
         
         if computer_choice == 'rock' and user == 'rock':
             print('The computer chose .......\n', computer_choice)
-            print('This was a tie.(No points are given)')
+            print('This was a tie.(No points are given)\n')
+            continue
             
-            time+=1
+            
         elif computer_choice == 'rock' and user == 'paper':
             print('The computer chose .......\n', computer_choice)
-            print('You won this round')
+            print('You won this round\n')
             score+=1
-            time+=1
+            continue
+            
         elif computer_choice == 'rock' and user == 'scissors':
             print('The computer chose .......\n', computer_choice)
-            print('The computer won this round')
-            time+=1
-        elif computer_choice == 'paper' and user == 'paper':
-            print('The computer chose .......\n', computer_choice)
-            print('This was a tie.(No points are given)')
-            time+=1
-        elif computer_choice == 'paper' and user == 'rock':
-            print('The computer chose .......\n', computer_choice)
-            print('The computer won this round')
-            time+=1
-        elif computer_choice == 'paper' and user == 'scissors':
-            print('The computer chose .......\n', computer_choice)
-            print('You won this round.')
-            score+=1
-            time+=1
-        elif computer_choice == 'scissors' and user == 'scissors':
-            print('The computer chose .......\n', computer_choice)
-            print('This is a tie.(No points are given)')
-            time+=1
-        elif computer_choice == 'scissors' and user == 'paper':
-            print('The computer chose .......\n', computer_choice)
-            print('The computer won this round')
-            time+=1
-        elif computer_choice == 'scissors' and user == 'rock':
-            print('The computer chose .......\n', computer_choice)
-            print('You won this round.')
-            score+=1
-            time+=1
-        else:
-            print('That is not one of the options. Try again...')
-            continue
-        
-        if time == 5:
+            print('The computer won this round\n')
             print(f'Your final score is: {score}')
             return score
-        else:
+
+            
+        elif computer_choice == 'paper' and user == 'paper':
+            print('The computer chose .......\n', computer_choice)
+            print('This was a tie.(No points are given)\n')
             continue
+            
+        elif computer_choice == 'paper' and user == 'rock':
+            print('The computer chose .......\n', computer_choice)
+            print('The computer won this round\n')
+            print(f'Your final score is: {score}')
+            return score
+        
+            
+        elif computer_choice == 'paper' and user == 'scissors':
+            print('The computer chose .......\n', computer_choice)
+            print('You won this round.\n')
+            score+=1
+            continue
+            
+        elif computer_choice == 'scissors' and user == 'scissors':
+            print('The computer chose .......\n', computer_choice)
+            print('This is a tie.(No points are given)\n')
+            continue
+        elif computer_choice == 'scissors' and user == 'paper':
+            print('The computer chose .......\n', computer_choice)
+            print('The computer won this round\n')
+            print(f'Your final score is: {score}')
+            return score
+            
+        elif computer_choice == 'scissors' and user == 'rock':
+            print('The computer chose .......\n', computer_choice)
+            print('You won this round.\n')
+            score+=1
+            continue
+        else:
+            print('That is not one of the options. Try again...\n')
+            continue
+        
     
 
 

@@ -33,7 +33,7 @@ def main():
                 break
 
             case '3':
-                print('Thankyou for playing!')
+                print('Thank you for playing!')
                 exit()
 
             case _:
