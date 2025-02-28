@@ -15,7 +15,13 @@ def play_game():
         computer = ['rock', 'paper', 'scissors']
         user = input('Type in your choice(rock, paper, or scissors): ')
         computer_choice = random.choice(computer)
-        print('The computer chose .......\n', computer_choice)
+
+        if user in computer:
+            print('The computer chose .......\n', computer_choice)
+        else:
+            print('That is not one of the options. Try again...')
+            continue
+
         if computer_choice == 'rock' and user == 'rock':
             print('This was a tie.(No points are given)')
             time+=1
