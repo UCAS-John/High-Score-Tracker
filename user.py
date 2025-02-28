@@ -3,6 +3,7 @@ from high_score import write, load
 USER_PATH = "user.csv"
 
 def store_user(username: str, password: str) -> None:
+    username = username.lower()
     users = load(USER_PATH)
     if username in users:
         print("\nUsername is already used\n")
@@ -15,6 +16,7 @@ def store_user(username: str, password: str) -> None:
     return True
 
 def check_user(username: str, password: str) -> bool:
+    username = username.lower()
     users = load(USER_PATH)
 
     if username in users:
